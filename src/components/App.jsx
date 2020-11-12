@@ -6,6 +6,12 @@ import CreateArea from "./CreateArea";
 
 function App() {
     const [notes, setNotes] = useState([]);
+        let today = new Date();
+        const month = today.getMonth();
+        const day= today.getDay();
+        const year= today.getFullYear();
+        today = day +'/'+ month +'/'+year;
+
     function addNote(newNote) {
         setNotes(prevNotes => {
             return [...prevNotes, newNote];
@@ -30,6 +36,7 @@ function App() {
                         key={index}
                         id={index}
                         title={noteItem.title}
+                        today={today}
                         content={noteItem.content}
                         onDelete={deleteNote}
                     />

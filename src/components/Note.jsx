@@ -1,15 +1,20 @@
 import React from "react";
-const date = Date();
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function Note(props) {
-    function handleClick() {
+
+    function deleteNote() {
         props.onDelete(props.id);
     }
     return (
         <div className="note">
-            <h1>{props.title}</h1>
-            <p>{props.content}</p>
-            <button onClick={handleClick}>DELETE</button>
+            <h1 className="title">{props.title}</h1>
+            <p className="today">{props.today}</p>
+            <p className="content">{props.content}</p>
+            <IconButton onClick={deleteNote} aria-label="delete" >
+                <DeleteIcon />
+            </IconButton>
         </div>
     );
 }

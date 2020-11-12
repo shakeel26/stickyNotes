@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PostAddIcon from '@material-ui/icons/PostAdd';
 
 function CreateArea(props) {
     const [note, setNote] = useState({
@@ -41,7 +42,8 @@ function CreateArea(props) {
                     placeholder="Take a note..."
                     rows="3"
                 />
-                <button onClick={submitNote}>Add</button>
+                <PostAddIcon onClick={submitNote} aria-label="delete" >
+                </PostAddIcon>
             </form>
         </div>
     );
