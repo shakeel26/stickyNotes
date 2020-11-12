@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
-function CreateArea(props) {
+const CreateArea = (props) => {
     const [note, setNote] = useState({
         title: "",
         content: ""
     });
 
-    function handleChange(event) {
+    const handleChange = (event) => {
         const { name, value } = event.target;
         setNote(prevNote => {
             return {
@@ -17,7 +17,7 @@ function CreateArea(props) {
         });
     }
 
-    function submitNote(event) {
+    const submitNote = (event) => {
         props.onAdd(note);
         setNote({
             title: "",

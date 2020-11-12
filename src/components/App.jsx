@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
-function App() {
+const App = () => {
     const [notes, setNotes] = useState([]);
-        let today = new Date();
-        const month = today.getMonth();
-        const day= today.getDay();
-        const year= today.getFullYear();
-        today = day +'/'+ month +'/'+year;
+    let today = new Date();
+    const month = today.getMonth();
+    const day = today.getDay();
+    const year = today.getFullYear();
+    today = day + '/' + month + '/' + year;
 
-    function addNote(newNote) {
+    const addNote = (newNote) => {
         setNotes(prevNotes => {
             return [...prevNotes, newNote];
         });
     }
 
-    function deleteNote(id) {
+    const deleteNote = (id) => {
         setNotes(prevNotes => {
             return prevNotes.filter((noteItem, index) => {
                 return index !== id;
@@ -28,8 +28,8 @@ function App() {
 
     return (
         <div>
-            <Header />
-            <CreateArea onAdd={addNote} />
+            <Header/>
+            <CreateArea onAdd={addNote}/>
             {notes.map((noteItem, index) => {
                 return (
                     <Note
@@ -42,7 +42,7 @@ function App() {
                     />
                 );
             })}
-            <Footer />
+            <Footer/>
         </div>
     );
 }

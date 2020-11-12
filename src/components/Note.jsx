@@ -2,9 +2,9 @@ import React from "react";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function Note(props) {
+const Note = (props) => {
 
-    function deleteNote() {
+    const deleteNote = () => {
         props.onDelete(props.id);
     }
     return (
